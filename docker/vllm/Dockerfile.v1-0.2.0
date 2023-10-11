@@ -1,0 +1,13 @@
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update -y && apt-get install -y curl python3-pip screen git
+RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+RUN pip install git+https://github.com/huggingface/transformers.git@main accelerate
+RUN pip install vllm==0.2.0
+RUN pip install pandas fschat
+RUN pip uninstall typing_extensions --yes
+RUN pip install typing_extensions==4.7.1
+# This is the dockerfile for: xingyaoww/vllm:v1-0.2.0
