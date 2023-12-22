@@ -1,0 +1,111 @@
+model_list:
+  # ====== Mistral ======
+  - model_name: Mistral-7B-Instruct-v0.1 # model alias
+    litellm_params:
+      model: "huggingface/Mistral-7B-Instruct-v0.1"
+      api_base: "http://localhost:8080"
+      initial_prompt_value: "<s>"
+      roles: {"system":{"pre_message":"<|im_start|>system\n", "post_message":"<|im_end|>"}, "assistant":{"pre_message":"<|im_start|>assistant\n","post_message":"<|im_end|>"}, "user":{"pre_message":"<|im_start|>user\n","post_message":"<|im_end|>"}}
+      final_prompt_value: "</s>"
+      # https://github.com/BerriAI/litellm/blob/721564c63999a43f96ee9167d0530759d51f8d45/litellm/llms/prompt_templates/factory.py#L29
+      max_tokens: 16384
+
+  # ====== LLaMA-2 ======
+  - model_name: Llama-2-70b-chat-hf
+    litellm_params:
+      model: "huggingface/Llama-2-70b-chat"
+      api_base: "http://localhost:8080"
+      roles:
+        {
+          "system":
+            {
+              "pre_message": "[INST] <<SYS>>\n",
+              "post_message": "\n<</SYS>>\n [/INST]\n",
+            },
+          "user": { "pre_message": "[INST] ", "post_message": " [/INST]\n" },
+          "assistant": { "post_message": "\n" },
+        }
+      max_tokens: 4096
+
+  - model_name: Llama-2-13b-chat-hf
+    litellm_params:
+      model: "huggingface/Llama-2-13b-chat"
+      api_base: "http://localhost:8080"
+      roles:
+        {
+          "system":
+            {
+              "pre_message": "[INST] <<SYS>>\n",
+              "post_message": "\n<</SYS>>\n [/INST]\n",
+            },
+          "user": { "pre_message": "[INST] ", "post_message": " [/INST]\n" },
+          "assistant": { "post_message": "\n" },
+        }
+      max_tokens: 4096
+
+  - model_name: Llama-2-7b-chat-hf
+    litellm_params:
+      model: "huggingface/Llama-2-7b-chat"
+      api_base: "http://localhost:8080"
+      roles:
+        {
+          "system":
+            {
+              "pre_message": "[INST] <<SYS>>\n",
+              "post_message": "\n<</SYS>>\n [/INST]\n",
+            },
+          "user": { "pre_message": "[INST] ", "post_message": " [/INST]\n" },
+          "assistant": { "post_message": "\n" },
+        }
+      max_tokens: 4096
+
+  # ====== CodeLLaMA ======
+  - model_name: CodeLlama-34b-Instruct-hf
+    litellm_params:
+      model: "huggingface/CodeLlama-34b-Instruct-hf"
+      api_base: "http://localhost:8080"
+      roles:
+        {
+          "system":
+            {
+              "pre_message": "[INST] <<SYS>>\n",
+              "post_message": "\n<</SYS>>\n [/INST]\n",
+            },
+          "user": { "pre_message": "[INST] ", "post_message": " [/INST]\n" },
+          "assistant": { "post_message": "\n" },
+        }
+      max_tokens: 16384
+      
+  - model_name: CodeLlama-13b-Instruct-hf
+    litellm_params:
+      model: "huggingface/CodeLlama-13b-Instruct-hf"
+      api_base: "http://localhost:8080"
+      roles:
+        {
+          "system":
+            {
+              "pre_message": "[INST] <<SYS>>\n",
+              "post_message": "\n<</SYS>>\n [/INST]\n",
+            },
+          "user": { "pre_message": "[INST] ", "post_message": " [/INST]\n" },
+          "assistant": { "post_message": "\n" },
+        }
+      max_tokens: 16384
+        
+
+  - model_name: CodeLlama-7b-Instruct-hf
+    litellm_params:
+      model: "huggingface/CodeLlama-7b-Instruct-hf"
+      api_base: "http://localhost:8080"
+      roles:
+        {
+          "system":
+            {
+              "pre_message": "[INST] <<SYS>>\n",
+              "post_message": "\n<</SYS>>\n [/INST]\n",
+            },
+          "user": { "pre_message": "[INST] ", "post_message": " [/INST]\n" },
+          "assistant": { "post_message": "\n" },
+        }
+      max_tokens: 16384
+      
